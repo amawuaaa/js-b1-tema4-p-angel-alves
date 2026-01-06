@@ -29,7 +29,26 @@ Tingues en compte que, encara que la pàgina de Wikipedia no té restriccions de
 */
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+/**
+ * Función JSDataUsingThen: Realiza una petición a la API de Wikipedia
+ * utilizando encadenamiento de promesas con .then()
+ */
+function JSDataUsingThen() {
+    const url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=JavaScript&format=json&origin=*";
 
+    // 1. Iniciamos la petición fetch (devuelve una promesa)
+    return fetch(url)
+        .then(function(response) {
+            // 2. El primer .then recibe la respuesta y la convierte a JSON
+            // El método .json() también devuelve una promesa
+            return response.json();
+        })
+        .then(function(datos) {
+            // 3. El segundo .then recibe los datos ya convertidos
+            // Devolvemos los datos finales
+            return datos;
+        });
+}
 
 /**
  * TEST
