@@ -25,7 +25,27 @@
 */
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+/**
+ * Función fetchOctocatUsingThen: Obtiene los datos de "octocat"
+ * utilizando la sintaxis de promesas con .then()
+ */
+function fetchOctocatUsingThen() {
+    // 1. Definimos la dirección de la API de GitHub
+    const url = "https://api.github.com/users/octocat";
 
+    // 2. Iniciamos la petición (fetch devuelve una promesa)
+    return fetch(url)
+        .then(function(response) {
+            // 3. El primer .then recibe el objeto Response.
+            // Convertimos ese paquete de datos a JSON (esto genera otra promesa).
+            return response.json();
+        })
+        .then(function(data) {
+            // 4. El segundo .then recibe los datos finales ya procesados.
+            // Devolvemos esos datos.
+            return data;
+        });
+}
 
 /**
  * TEST
