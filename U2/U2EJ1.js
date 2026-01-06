@@ -27,7 +27,23 @@ Ten en cuenta que, aunque la página de Wikipedia no tiene restricciones de CORS
 */
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+/**
+ * Función JSData: Realiza una petición asíncrona a la API de Wikipedia
+ * Corregida para que coincidan los nombres de las variables.
+ */
+async function JSData() {
+    // URL de Wikipedia para buscar 'JavaScript'
+    const url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=JavaScript&format=json&origin=*";
 
+    // 1. Hacemos la llamada (Guardamos el resultado en 'response')
+    const response = await fetch(url);
+
+    // 2. Convertimos a JSON (Usamos 'response', el mismo nombre de arriba)
+    const datos = await response.json();
+
+    // 3. Devolvemos los datos
+    return datos;
+}
 
 /**
  * TEST
